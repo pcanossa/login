@@ -1,0 +1,14 @@
+.body {
+  height: 98vh;
+  background: url("../../../../../../assets/img/Bg.png") no-repeat;
+  color: #4A4A4A;
+}
+
+nav {
+  padding: 10px 15px;
+}
+
+button {
+  background-color:#DD0330;
+  border: none;
+}

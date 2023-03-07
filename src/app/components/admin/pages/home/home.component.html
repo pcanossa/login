@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<div class="body">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-between">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Opções
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" (click)="enableCreateUser();">Cadastar Usuário</a></li>
+        <li><a class="dropdown-item" href="#">Sair</a></li>
+      </ul>
+    </div>
+    <div class="user">
+      <span>Olá {{username}}</span>
+    </div>
+  </nav>
+  <div class="content d-flex justify-content-center align-items-center">
+    <div class="login-box container d-flex flex-column justify-content-center align-items-center" *ngIf="create">
+      <img src="../../../../../../assets/img/Angular.png" alt="">
+      <div class="container dados-login">
+        <form class="register" [formGroup]="formRegister">
+        <label class="usuario d-flex">
+          <span class="material-symbols-outlined">
+            account_circle
+          </span>
+          Nome de Usuário
+        </label>
+        <input type="text" placeholder="usuário" formControlName="username" class="password ">
+        <hr>
+        <label class="senha d-flex">
+          <span class="material-symbols-outlined">
+            lock
+          </span>
+          Senha
+        </label>
+        <input type="password" placeholder="senha" formControlName="password">
+        <hr>
+        <label class="credential">
+          <span>
+
+          </span>
+          Tipo de Conta
+        </label>
+        <div class="radios d-flex justify-content-around">
+          <label class="radio">
+            <input type="radio" name="credential" value="user" formControlName="credential" checked> Usuário
+          </label>
+          <label class="radio">
+            <input type="radio" name="credential" value="admin" formControlName="credential"> Administrador
+          </label>
+        </div>
+        <button class="btn btn-primary" type="button" [disabled]="formRegister.invalid" (click)="submitForm();">
+          REGISTRAR
+        </button>
+        <div class="erro d-flex justify-content-center align-items-center" *ngIf="msgError || message">
+          {{ msgError || message }}
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

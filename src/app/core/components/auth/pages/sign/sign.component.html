@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<div class="body d-flex justify-content-center align-items-center">
+  <div class="login-box container d-flex flex-column justify-content-center align-items-center">
+    <img src="../../../../../../assets/img/Angular.png" alt="">
+    <div class="container dados-login">
+      <form action="" class="login" [formGroup]="formAuth">
+      <label class="usuario d-flex">
+        <span class="material-symbols-outlined">
+          account_circle
+        </span>
+        Usuário
+      </label>
+      <input type="text" placeholder="usuário" formControlName="username" class="password ">
+      <hr>
+      <label class="senha d-flex">
+        <span class="material-symbols-outlined">
+          lock
+        </span>
+        Senha
+      </label>
+      <input type="password" placeholder="senha" formControlName="password">
+      <hr>
+      <button class="btn btn-primary" type="button" [disabled]="formAuth.invalid" (click)="submitForm();">
+        LOGIN
+      </button>
+    </form>
+      <div class="erro d-flex justify-content-center align-items-center" *ngIf="msgError">
+        {{ msgError }}
+      </div>
+    </div>
+  </div>
+</div>
